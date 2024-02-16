@@ -48,7 +48,8 @@ public class LatencyTest {
         C8DB.Builder clusterBuilder = new C8DB.Builder()
                 .host(HOST, 443)
                 .useSsl(true)
-                .apiKey(API_KEY);
+                .apiKey(API_KEY)
+                .maxConnections(PARALLELISM);
         C8DB c8db = clusterBuilder.build();
         C8Database c8Database = c8db.db(TENANT, FABRIC);
         C8Collection collection = c8Database.collection(COLLECTION_NAME);
